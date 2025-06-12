@@ -1,10 +1,9 @@
----
 version: 1
 Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:715841367723:task-definition/project6-task:1"
+        TaskDefinition: "REPLACED_DURING_DEPLOYMENT"
         LoadBalancerInfo:
-          ContainerName: "sprinrajco"
+          ContainerName: "springboot-container"
           ContainerPort: 8080
