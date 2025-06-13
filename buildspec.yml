@@ -3,4 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Hello from CodeBuild"
+      - echo "Hello from CodeBuild" > hello.txt
+
+artifacts:
+  files:
+    - hello.txt
