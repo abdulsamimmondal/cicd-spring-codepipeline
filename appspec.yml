@@ -4,7 +4,7 @@ Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "arn:aws:ecs:us-east-1:713881797197:task-definition/blue-green-task:1"
+        TaskDefinition: "arn:aws:ecs:us-east-1:418295691381:task-definition/blue-green-task:1"
         LoadBalancerInfo:
-          ContainerName: "blue-green-container"
+          ContainerName: "sprinrajco"
           ContainerPort: 8080
