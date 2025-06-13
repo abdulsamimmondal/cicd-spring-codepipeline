@@ -1,9 +1,10 @@
+---
 version: 1
 Resources:
   - TargetService:
       Type: AWS::ECS::Service
       Properties:
-        TaskDefinition: "REPLACED_DURING_DEPLOYMENT"
+        TaskDefinition: "arn:aws:ecs:us-east-1:713881797197:task-definition/blue-green-task:1"
         LoadBalancerInfo:
-          ContainerName: "springboot-container"
+          ContainerName: "blue-green-container"
           ContainerPort: 8080
