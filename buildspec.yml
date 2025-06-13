@@ -1,15 +1,18 @@
 version: 0.2
 
+env:
+  variables:
+    ACCOUNT_ID: 418295691381
+    REGION: us-east-1
+    REPO_NAME: juhi
+    IMAGE_TAG: latest
+
 phases:
   pre_build:
     commands:
       - echo Installing dependencies...
       - yum install -y jq maven
       - echo Logging in to Amazon ECR...
-      - ACCOUNT_ID=418295691381
-      - REGION=us-east-1
-      - REPO_NAME=juhi
-      - IMAGE_TAG=latest
       - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
 
   build:
@@ -30,7 +33,7 @@ phases:
         cat > taskdef.json <<EOF
         {
           "family": "blue-green-task",
-          "executionRoleArn": "arn:aws:iam::418295691381:role/ecsTaskExecutionRole",
+          "executionRoleArn": "arn:aws:iam::$ACCOUNT_ID:role/ecsTaskExecutionRole",
           "networkMode": "awsvpc",
           "containerDefinitions": [
             {
